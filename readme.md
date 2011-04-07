@@ -4,27 +4,15 @@ A [hypergraph](http://en.wikipedia.org/wiki/Hypergraph) library in Javascript, p
 
 ## Usage
 
-graph = new HyperGraph
+    graph = new HyperGraph
 
-dog = graph.add(new Vertex("dog"))
-cat = graph.add(new Vertex("cat"))
-animal = graph.add(new Vertex("animal"))
+    dog = graph.add(new Vertex("dog"))
+    cat = graph.add(new Vertex("cat"))
+    animal = graph.add(new Vertex("animal"))
 
-edge = graph.addEdge([dog, animal]);
-edge = graph.addEdge([cat, animal]);
+    edge = graph.addEdge(new Edge([dog, animal]));
+    edge = graph.addEdge(new Edge([cat, animal]));
 
-graph.findEdgesContaining('animal')
+    graph.getEdgesForVertex('animal') => [Edge([animal, cat]), Edge([animal, dog])]
 
-[
-  Edge([animal, cat]),
-  Edge([animal, dog])
-]
-
-graph.findEdgesContaining('animal')
-
-graph.get
-
- Book mybook = new Book("Critique of Pure Reason", "E. Kant");  
- HGHandle bookHandle = graph.add(mybook);
- HGHandle priceHandle = graph.add(9.95);
- HGValueLink link = new HGValueLink("book_price", bookHandle, priceHandle);
+    graph.getVertex("dog") => Vertex(...)
